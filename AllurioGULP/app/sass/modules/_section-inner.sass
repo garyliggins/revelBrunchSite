@@ -1,0 +1,58 @@
+.inner
+  position: relative
+  overflow: hidden
+  background-color: tint($base-color-dark, 3.5%)
+
+.inner__info
+  padding: 100px 0
+  +MQ(M)
+    padding: 120px 0
+  +MQ(XXL)
+    padding: 180px 0
+
+.inner__media
+  position: relative
+  overflow: hidden
+  padding: 0
+  &.media-padding
+    padding: 100px 0
+  +MQ(M)
+    &.media-padding
+      padding: 120px 0
+  +MQ(XXL)
+    &.media-padding
+      padding: 180px 0
+
+.info__wrapper
+  position: relative
+  padding: 0 5vw
+
+.media__wrapper
+  position: relative
+  z-index: 3
+
+.info__title
+
+.info__content
+
+.content-block
+  margin-bottom: 60px
+  &:last-of-type
+    margin-bottom: 0
+  &.mobile-margin
+    margin-bottom: 60px
+    &:last-of-type
+      margin-bottom: 0
+  +MQ(M)
+    margin-bottom: 80px
+    &.mobile-margin
+      margin-bottom: 80px
+  +MQ(L)
+    &.mobile-margin
+      margin-bottom: 0
+
+.media-services
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  background-attachment: fixed

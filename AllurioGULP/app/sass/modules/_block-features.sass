@@ -1,0 +1,23 @@
+.feature-item
+  position: relative
+  margin-bottom: 60px
+  &:last-of-type
+    margin-bottom: 0
+  img
+    width: auto
+    max-width: 138px
+    height: 100%
+    margin-bottom: 3.4rem
+  +MQ(M)
+    margin-bottom: 80px
+    &:nth-last-of-type(2)
+      margin-bottom: 0
+  +MQ(XL)
+    margin-bottom: 0
+
+.feature-item-wrapper
+  padding: 0
+  +MQ(M)
+    padding: 0 2rem
+    p
+      max-width: 310px

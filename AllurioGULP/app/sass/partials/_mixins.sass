@@ -1,0 +1,58 @@
+// Center vertically and/or horizontally an absolute positioned element
+=center($xy: xy)
+  @if $xy == xy
+    left: 50%
+    top: 50%
+    bottom: auto
+    right: auto
+    transform: translateX(-50%) translateY(-50%)
+  @else if $xy == x
+    left: 50%
+    right: auto
+    transform: translateX(-50%)
+  @else if $xy == y
+    top: 50%
+    bottom: auto
+    transform: translateY(-50%)
+
+// Antialiasing mode font rendering
+=font-smoothing
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+// Gradient text
+=gradient-text
+  background: linear-gradient(-45deg, $accent-color-two 0%, $accent-color 30%, $additional-color 70%, $accent-color-two 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+
+// Gradient buttons
+=gradient-button
+  background: linear-gradient(-45deg, $accent-color-two 0%, $accent-color 30%, $additional-color 70%, $accent-color-two 100%)
+=gradient-button-hover
+  background: linear-gradient(135deg, $accent-color-two 0%, $accent-color 23%, $accent-color 70%, $additional-color 85%, $accent-color-two 100%)
+
+// Gradient backgrounds
+=gradient-four-colors-06
+  background: linear-gradient(-45deg, rgba($accent-color-two, 0.6) 0%, rgba($accent-color, 0.6) 30%, rgba($additional-color, 0.6) 70%, rgba($accent-color-two, 0.6) 100%)
+=gradient-four-colors
+  background: linear-gradient(-45deg, rgba(198,150,129,1) 0%,rgba(219,190,173,1) 30%,rgba(239,171,146,1) 70%,rgba(198,150,129,1) 100%)
+=gradient-dark-135deg
+  background: linear-gradient(135deg, $for-dark-gr-1 0%, $for-dark-gr-2 100%)
+=gradient-light-135deg
+  background: linear-gradient(135deg, rgba($accent-color-two, 0.5) 0%, rgba($for-light-gr-1, 0.5) 100%)
+=gradient-black-onethird
+  background: linear-gradient(to bottom, rgba($black, 0.0) 0%, rgba($black, 0.0) 70%, rgba($black, 0.4) 100%)
+
+// Box Shadows
+=shadow($level: 1)
+  @if $level == 1
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  @if $level == 2
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  @if $level == 3
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+  @if $level == 4
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  @if $level == 5
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)

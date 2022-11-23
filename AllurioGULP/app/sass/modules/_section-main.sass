@@ -1,0 +1,87 @@
+.main
+  position: relative
+  height: 100%
+  min-height: 480px
+  overflow: hidden
+  background-color: $base-color-dark
+  +MQ(XL)
+    min-height: 600px
+
+.main__content
+  position: relative
+  padding: 0 5vw
+  height: 100%
+  &.fullscreen
+    +position(absolute, null 0 0 null)
+    width: 100%
+    height: 100%
+
+.main__intro
+  position: relative
+  height: 100%
+  background-color: transparent
+  z-index: 2
+
+.intro__content
+  position: relative
+  height: 100%
+
+.headline
+  position: absolute
+  left: 0
+  +center(y)
+  width: 100%
+  &.bottom
+    +position(absolute, auto null 40px 0)
+    width: 100%
+    transform: translateY(0)
+  +MQ(M)
+    &.bottom
+      bottom: 60px
+  +MQ(XXL)
+    &.bottom
+      bottom: 80px
+
+.intro__controls
+  +position(absolute, null null 30px 0)
+  +MQ(M)
+    bottom: 40px
+
+.main__media
+  +position(absolute, null 0 0 null)
+  height: 100%
+  z-index: 1
+
+.media__content
+  +position(absolute, null null 0 -5vw)
+  width: calc(100% + 10vw)
+  height: 100%
+  background-color: $base-color-dark
+  +MQ(XL)
+    &.split
+      +position(absolute, auto null 0 0)
+      width: calc(100% + 5vw)
+      height: calc(100% - 120px)
+    &.half
+      +position(absolute, auto null 0 0)
+      width: calc(100% + 5vw)
+      height: 100%
+    &.fullscreen
+      +position(absolute, null null 0 -5vw)
+      width: calc(100% + 10vw)
+      height: 100%
+
+.media__image
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+
+.main-countdown
+  +position(absolute, null 0 30px null)
+  padding: 0 5vw
+  z-index: 2
+  +MQ(M)
+    bottom: 40px

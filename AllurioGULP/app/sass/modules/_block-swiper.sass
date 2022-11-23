@@ -1,0 +1,186 @@
+.main-slider,
+.about-slider
+  position: relative
+
+.main-slider
+  height: 100%
+
+.swiper-main
+  height: 100%
+  margin-left: auto
+  margin-right: auto
+  position: relative
+  overflow: hidden
+  list-style: none
+  padding: 0
+  z-index: 1
+
+.swiper-slide-main
+  position: relative
+  width: 100%
+  height: 100%
+  background-color: transparent
+
+.slide-image
+  position: relative
+  width: 100%
+  height: 100%
+  background-color: $base-color-dark
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+
+.main-slider-controls
+  background-color: transparent
+  display: none
+  +MQ(XL)
+    display: block
+    +position(absolute, null 5vw 50px null)
+    width: calc(6vw + 40px)
+    height: 81px
+    padding: 0 3vw
+    z-index: 2
+    &.centered
+      bottom: auto
+      +center(y)
+      height: 79px
+    &.bottom
+      bottom: 60px
+      height: 79px
+  +MQ(XXL)
+    &.bottom
+      bottom: 80px
+
+.main-swiper-button-prev,
+.main-swiper-button-next
+  width: 40px
+  height: 40px
+  line-height: 40px
+  font-size: 1.4rem
+  text-align: center
+  background-color: $white
+  color: $black
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  transition: all $animation-duration
+  &.transparent
+    background-color: transparent
+    border: 1px solid rgba($white, 0.5)
+    color: $text-light
+  &:active,
+  &:focus
+    outline: none
+  &::after
+    display: none
+  +MQ(XL)
+    position: absolute
+    .no-touch &:hover
+      &.transparent
+        background-color: $white
+        color: $text-dark
+
+.main-swiper-button-next
+  right: 0
+  span
+    &::after
+      content: "\f3d1"
+      display: inline-block
+      font-family: "Ionicons"
+  +MQ(XL)
+    top: 0
+    right: auto
+    +center(x)
+    margin: 0
+
+.main-swiper-button-prev
+  left: 0
+  span
+    &::before
+      content: "\f3cf"
+      display: inline-block
+      font-family: "Ionicons"
+  +MQ(XL)
+    top: auto
+    bottom: 0
+    left: auto
+    +center(x)
+    margin: 0
+
+.swiper-about
+  position: relative
+  width: 100%
+  height: auto
+  overflow: hidden
+  img
+    display: block
+    width: 100%
+  +MQ(L)
+    height: 600px
+    .swiper-slide
+      width: auto
+    img
+      width: auto
+      height: 100%
+
+.about-slider-controls
+  +position(absolute, null 0 0 null)
+  width: 100%
+  height: 40px
+  padding: 0 5vw
+  z-index: 3
+  .controls-container
+    display: flex
+    justify-content: flex-end
+    position: relative
+    height: 40px
+    padding: 0 3vw
+    text-align: right
+
+.about-swiper-button-prev,
+.about-swiper-button-next
+  +position(relative, auto auto auto auto)
+  width: 40px
+  height: 40px
+  line-height: 40px
+  margin: 0
+  padding: 0
+  outline: none
+  font: normal 400 1.2rem/1.7 $default-font
+  letter-spacing: 0.26rem
+  text-transform: uppercase
+  text-align: center
+  color: $text-light
+  background-color: tint($base-color-dark, 3.5%)
+  transition: all $animation-duration ease-in-out
+  &::after
+    display: none
+  i
+    font-size: 1.4rem
+    text-align: center
+    transition: color $animation-duration ease-in-out
+  .controls-caption
+    display: none
+  .no-touch &:hover
+    background-color: tint($base-color-dark, 3%)
+    i
+      color: $text-light-mute
+  +MQ(M)
+    width: auto
+    padding: 0.3rem 3.2rem 0 3.2rem
+    text-align: left
+    i
+      width: auto
+    .controls-caption
+      display: inline
+    .no-touch &:hover
+      color: $text-light-mute
+
+.about-swiper-button-prev
+  margin-right: -4px
+  +MQ(M)
+    .controls-caption
+      padding-left: 1.2rem
+
+.about-swiper-button-next
+  +MQ(M)
+    .controls-caption
+      padding-right: 1.2rem

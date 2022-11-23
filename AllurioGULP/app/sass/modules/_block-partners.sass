@@ -1,0 +1,22 @@
+.media__partners
+  position: relative
+  padding: 0 5vw
+
+.partners-content
+  position: relative
+  padding: 0 3vw
+  overflow: hidden
+
+.partner-link
+  display: block
+  position: relative
+  cursor: pointer
+  img
+    opacity: 1
+    transition: opacity $animation-duration - .2s ease-in-out
+  +MQ(L)
+    img
+      opacity: .6
+    .no-touch &:hover
+      img
+        opacity: 1

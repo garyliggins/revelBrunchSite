@@ -1,0 +1,280 @@
+.menu
+  display: block
+  +position(fixed, 0 0 null null)
+  width: 100%
+  height: 100%
+  z-index: 10
+  overflow-y: auto
+  overflow-x: hidden
+  opacity: 0
+  visibility: hidden
+  transition: all .6s ease-in-out
+
+  .navigation
+    li
+      opacity: 0
+      transition: opacity $animation-delay, filter $animation-delay
+  .menu__image
+    opacity: 0
+    transform: translateX(30px)
+    transition: filter $animation-duration 1.6s, opacity $animation-duration 1.6s, transform $animation-duration 1.6s ease-in-out
+  .menu__contact,
+  .navigation-copyright
+    opacity: 0
+    transition: opacity $animation-duration ease-in-out
+
+  &.animate-in
+    opacity: 1
+    visibility: visible
+    .navigation
+      li
+        opacity: 1
+        &:nth-of-type(1)
+          transition: filter $animation-duration $animation-delay + .5s , opacity $animation-duration $animation-delay + .5s
+        &:nth-of-type(2)
+          transition: filter $animation-duration $animation-delay + .6s , opacity $animation-duration $animation-delay + .6s
+        &:nth-of-type(3)
+          transition: filter $animation-duration $animation-delay + .7s , opacity $animation-duration $animation-delay + .7s
+        &:nth-of-type(4)
+          transition: filter $animation-duration $animation-delay + .8s , opacity $animation-duration $animation-delay + .8s
+        &:nth-of-type(5)
+          transition: filter $animation-duration $animation-delay + .9s , opacity $animation-duration $animation-delay + .9s
+    .menu__image
+      opacity: 1
+      transform: translateX(0)
+      transition: filter $animation-duration + .4s $animation-delay + .5s, opacity $animation-duration + .4s $animation-delay + .5s, transform $animation-duration + .4s $animation-delay + .5s ease-in-out
+    .menu__contact,
+    .navigation-copyright
+      opacity: 1
+      transition: opacity $animation-duration 1.6s ease-in-out
+
+  &.animate-out
+    opacity: 0
+    visibility: hidden
+    transition: all .6s 1.4s ease-in-out
+    .navigation
+      li
+        opacity: 0
+        &:nth-of-type(1)
+          transition: filter $animation-duration $animation-delay + .1s , opacity $animation-duration $animation-delay + .1s
+        &:nth-of-type(2)
+          transition: filter $animation-duration $animation-delay + .2s , opacity $animation-duration $animation-delay + .2s
+        &:nth-of-type(3)
+          transition: filter $animation-duration $animation-delay + .3s , opacity $animation-duration $animation-delay + .3s
+        &:nth-of-type(4)
+          transition: filter $animation-duration $animation-delay + .4s , opacity $animation-duration $animation-delay + .4s
+        &:nth-of-type(5)
+          transition: filter $animation-duration $animation-delay + .5s , opacity $animation-duration $animation-delay + .5s
+    .menu__image
+      opacity: 0
+      transform: translateX(30px)
+      transition: filter $animation-duration $animation-delay, opacity $animation-duration $animation-delay, transform $animation-duration $animation-delay ease-in-out
+    .menu__contact,
+    .navigation-copyright
+      opacity: 0
+      transition: opacity $animation-duration $animation-delay + .5s ease-in-out
+
+.menu__header
+  position: relative
+  width: 100%
+  height: 100px
+  padding: 0 5vw
+  .header-content
+    position: relative
+    width: 100%
+    height: 100%
+    padding: 0 3vw
+  +MQ(M)
+    height: 120px
+  +MQ(L)
+    +position(absolute, 0 null null 0)
+    z-index: 4
+    background-color: transparent
+    &.light
+      background-color: transparent
+  +MQ(XXL)
+    height: 140px
+
+.menu__content
+  position: relative
+  height: auto
+  padding: 0 5vw
+  +MQ(L)
+    height: 100%
+
+.menu__navigation,
+.menu__photo,
+.menu__contact
+  height: auto
+  +MQ(L)
+    height: 100%
+
+.menu__navigation
+  position: relative
+  z-index: 2
+  .navigation-content
+    position: relative
+    width: 100%
+    padding: 30px 0
+  .navigation
+    li
+      display: block
+      margin-bottom: 2.4rem
+      &:last-of-type
+        margin-bottom: 0
+      a
+        display: inline-block
+        position: relative
+        font: normal 400 4rem/1.2 $title-font
+        color: $text-base
+        transition: color $animation-duration - .2s ease-in-out
+        &::after
+          content: ""
+          display: block
+          +position(absolute, null null 4px 0)
+          width: 0%
+          height: 1px
+          background-color: $black
+          transition: width $animation-duration - .2s ease-in-out
+        .no-touch &:hover
+          color: $text-dark
+          &::after
+            width: 100%
+        &.light
+          color: $text-light-base
+          &::after
+            background-color: $white
+          .no-touch &:hover
+            color: $text-light
+  .navigation-copyright
+    padding: 30px 0
+    .copyright
+      p, a
+        font: normal 300 1.2rem/1.2 $default-font
+        text-transform: uppercase
+        letter-spacing: 0.16rem
+      a
+        transition: color $animation-duration - .2s ease-in-out
+        color: $text-dark
+        .no-touch &:hover
+          color: $text-mute
+        &.light
+          color: $text-light
+          .no-touch &:hover
+            color: $text-light-mute
+  +MQ(M)
+    .navigation-content,
+    .navigation-copyright
+      padding: 40px 0
+    .navigation
+      li
+        a
+          font-size: 4.5rem
+  +MQ(L)
+    .navigation-content
+      padding: 0
+      width: 100%
+      height: 100%
+    .navigation
+      position: absolute
+      left: 0
+      +center(y)
+      width: 100%
+    .navigation-copyright
+      +position(absolute, null null 40px 0)
+      width: 100%
+      padding: 0
+  +MQ(XXL)
+    .navigation
+      li
+        a
+          font-size: 6rem
+    .navigation-copyright
+      bottom: 50px
+
+.menu__image
+  position: relative
+  height: 600px
+  .menu-image
+    +position(absolute, 0 null null -5vw)
+    width: calc(100% + 10vw)
+    height: 100%
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    background-color: $base-color-dark
+  +MQ(M)
+    height: 760px
+  +MQ(L)
+    height: 100%
+    min-height: 100%
+    .menu-image
+      left: 0
+      width: 100%
+
+.menu__contact
+  position: relative
+  .contact-content
+    padding: 60px 0
+    .contact
+      .contact-item
+        position: relative
+        font: normal 300 1.5rem/1.7 $default-font
+        margin-bottom: 3.2rem
+        &:last-of-type
+          margin-bottom: 0
+        p
+          font: normal 300 1.5rem/1.7 $default-font
+        a
+          position: relative
+          font: normal 300 1.5rem/1.7 $default-font
+          color: $text-mute
+          transition: color $animation-duration - .2s ease-in-out
+          &::after
+            content: ""
+            display: block
+            position: absolute
+            bottom: -2px
+            left: 0
+            width: 0%
+            height: 1px
+            background-color: $black
+            transition: width $animation-duration - .2s ease-in-out
+          .no-touch &:hover
+            color: $text-dark
+            &::after
+              width: 100%
+          &.light
+            color: $text-light-mute
+            &::after
+              background-color: $white
+            .no-touch &:hover
+              color: $text-light
+        ul
+          display: block
+          position: relative
+          li
+            display: inline-block
+            margin-right: 2rem
+            a
+              font: normal 400 1.6rem/1.2 $default-font
+              &::after
+                display: none
+  +MQ(M)
+    .contact-content
+      padding: 80px 0
+  +MQ(L)
+    .contact-content
+      +position(absolute, null null 40px 0)
+      width: 100%
+      padding: 0
+      text-align: right
+      .contact
+        .contact-item
+          ul
+            li
+              margin-right: 0
+              margin-left: 2rem
+  +MQ(XXL)
+    .contact-content
+      bottom: 50px

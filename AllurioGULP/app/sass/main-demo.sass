@@ -1,0 +1,665 @@
+/*! ------------------------------------------------
+   Project Name: Allurio - Coming Soon & Portfolio Template
+   Project Description: Allurio - versatile and trendy coming soon & portfolio template to kick-start your project
+   Tags: mix_design, allurio, coming soon, under construction, template, coming soon page, landing page, one page, html5, css3
+   Version: 2.0.1
+   Build Date: September 2019
+   Last Update: November 2022
+   This product is available exclusively on Themeforest
+   Author: mix_design
+   Author URI: https://themeforest.net/user/mix_design
+   File name: main-demo.css
+   ------------------------------------------------
+
+   ------------------------------------------------
+   Table of Contents
+   ------------------------------------------------
+    1. Loader Styles
+    2. Fonts
+    3. Base CSS Styles
+    4. Typography Styles
+    5. Buttons & Triggers Styles
+    6. Intro Styles
+    7. Headline Styles
+    8. Preview Sections Styles
+    9. Preview Links Styles
+    10. Subscribe Section Styles
+    11. Footer Styles
+   ------------------------------------------------
+   Table of Contents End
+   ------------------------------------------------ */
+
+// Import Bourbon
+@import "bourbon"
+
+// Import Libs, Mixins and Variables
+@import "partials/layout"
+@import "partials/mixins"
+@import "partials/variables"
+
+/* ------------------------------------------------*/
+/* Loader Styles Start
+/* ------------------------------------------------*/
+@import "loaders/loader-dark"
+/* ------------------------------------------------*/
+/* Loader Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Fonts Start
+/* ------------------------------------------------*/
+// Open Sans Font
++font-face("OpenSans", "../fonts/OpenSans-Light/OpenSans-Light", 300, normal, $file-formats: eot woff ttf svg)
++font-face("OpenSans", "../fonts/OpenSans-LightItalic/OpenSans-LightItalic", 300, italic, $file-formats: eot woff ttf svg)
++font-face("OpenSans", "../fonts/OpenSans-Regular/OpenSans-Regular", 400, normal, $file-formats: eot woff ttf svg)
++font-face("OpenSans", "../fonts/OpenSans-Italic/OpenSans-Italic", 400, italic, $file-formats: eot woff ttf svg)
++font-face("OpenSans", "../fonts/OpenSans-SemiBold/OpenSans-SemiBold", 600, normal, $file-formats: eot woff ttf svg)
+// Old Standart TT Font
++font-face("OldStandardTT", "../fonts/OldStandardTT-Regular/OldStandardTT-Regular", 400, normal, $file-formats: eot woff ttf svg)
+/* ------------------------------------------------*/
+/* Fonts End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Base CSS Styles Start
+/* ------------------------------------------------*/
+*, *::before, *::after
+  box-sizing: border-box
+
+button:active, button:focus
+  outline: none !important
+
+button::-moz-focus-inner
+  border: 0 !important
+
+input::-moz-focus-inner
+  border: 0 !important
+
+::selection
+  background-color: tint($base-color-dark, 10%)
+  color: $text-light
+  text-shadow: none
+
+::-webkit-scrollbar
+  display: none
+  width: 5px
+  background: $black
+  +MQ(M)
+    display: block
+
+::-webkit-scrollbar-track
+  border-radius: 20px
+  background-color: $black
+
+::-webkit-scrollbar-thumb
+  background-color: tint($black, 12%)
+  border-radius: 10px
+
+html
+  font-family: sans-serif
+  font-size: 62.5%
+  +font-smoothing
+
+html,
+body
+  width: 100%
+  height: 100%
+
+body
+  position: relative
+  min-width: 320px
+  overflow-x: hidden !important
+  overflow-y: auto
+  background-color: tint($base-color-dark, 3.5%)
+  font: normal 400 1.6rem/1.7 $default-font
+  color: $text-base
+
+section
+  position: relative
+  min-width: 320px
+  outline: none
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+a
+  text-decoration: none
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  outline: 0
+
+img
+  display: block
+  width: 100%
+  height: auto
+
+.overflow-hidden
+  overflow: hidden !important
+
+.fullheight
+  position: static
+  height: auto
+  +MQ(XL)
+    position: relative
+    height: 100%
+
+.fullheight-mobile
+  position: relative
+  height: 100%
+
+.bg-white
+  background-color: $white
+
+.bg-light
+  background-color: $base-color
+
+.bg-dark
+  background-color: $base-color-dark
+
+.bg-medium
+  background-color: tint($base-color-dark, 3.5%)
+
+.color-layer
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+
+.color-layer-black-06
+  background-color: rgba($black, .6)
+
+.color-layer-black-04
+  background-color: rgba($black, .4)
+
+.color-layer-black-04-mobile
+  background-color: rgba($black, .4)
+  z-index: 1
+  +MQ(XL)
+    display: none
+/* ------------------------------------------------*/
+/* Base CSS Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Typography Styles Start
+/* ------------------------------------------------*/
+.headline__title
+  font: normal 400 4.6rem/1.06 $title-font
+  color: $text-light
+  text-align: center
+  margin: 0 auto
+  max-width: 800px
+  +MQ(M)
+    font-size: 6rem
+  +MQ(XXL)
+    font-size: 7rem
+
+.headline__subtitle
+  display: block
+  font: normal 400 1.4rem/1.2 $default-font
+  text-transform: uppercase
+  letter-spacing: 0.2rem
+  margin: 0 auto
+  margin-bottom: 3rem
+  padding-top: 2rem
+  color: $text-light-base
+  text-align: center
+  +MQ(XXL)
+    margin-bottom: 4rem
+
+.headline__descr
+  font: normal 300 1.6rem/1.7 $default-font
+  margin: 0 auto
+  margin-top: 3.8rem
+  color: $text-light-mute
+  max-width: 440px
+  text-align: center
+
+figure
+  text-align: center
+  figcaption
+    p
+      display: block
+      font: normal 400 1.2rem/1.2 $default-font
+      text-transform: uppercase
+      letter-spacing: 0.1rem
+      color: $text-light-mute
+      margin-top: 1.2rem
+      +MQ(XXL)
+        font-size: 1.4rem
+        margin-top: 2rem
+
+.footer
+  p
+    font: normal 400 1.2rem/1.2 $default-font
+    text-transform: uppercase
+    letter-spacing: 0.1rem
+    color: $text-light-mute
+    a
+      color: $text-light
+      transition: color $animation-duration
+      .no-touch &:hover
+        color: $text-light-mute
+    i
+      color: $text-light
+  +MQ(XXL)
+    p
+      font-size: 1.4rem
+/* ------------------------------------------------*/
+/* Typography Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Buttons & Triggers Styles Start
+/* ------------------------------------------------*/
+.btn
+  position: relative
+  display: inline-block
+  border: none
+  outline: 0
+  padding: 0
+  font: inherit
+  background-color: transparent
+  cursor: pointer
+  text-decoration: none
+  user-select: none
+  overflow: hidden
+  text-align: center
+
+.btn-l
+  height: 48px
+  line-height: 48px
+  padding: 0 5rem
+  font: normal 600 1.2rem/48px $default-font
+  letter-spacing: 0.22rem
+  text-transform: uppercase
+  transition: all $animation-duration ease-in-out
+
+.btn-light
+  border: 1px solid $white
+  background-color: $white
+  color: $text-dark
+  .no-touch &:hover
+    background-color: transparent
+    color: $text-light
+
+.btn-dark
+  border: 1px solid $base-color-dark
+  background-color: $base-color-dark
+  color: $text-light
+  .no-touch &:hover
+    background-color: transparent
+    color: $text-dark
+
+.to-top
+  +position(fixed, null 20px 20px null)
+  width: 40px
+  height: 40px
+  line-height: 40px
+  text-align: center
+  background-color: $white
+  color: $black
+  z-index: 3
+  visibility: hidden
+  opacity: 0
+  transition: opacity $animation-duration 0s, visibility 0s, $animation-duration
+  span
+    display: block
+    position: absolute
+    +center
+  .no-touch &:hover
+      transition: opacity 0.3s 0s, visibility 0s 0s
+      opacity: 1
+  &.is-visible
+    visibility: visible
+    opacity: 1
+  &.fade-out
+    opacity: 0.5
+    transition: opacity 0.3s 0s, visibility 0s 0s
+  +MQ(M)
+    +position(fixed, null 20px 20px null)
+/* ------------------------------------------------*/
+/* Buttons & Triggers Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Intro Styles Start
+/* ------------------------------------------------*/
+.main
+  position: relative
+  min-width: 320px
+  overflow: hidden
+  background-color: tint($base-color-dark, 3%)
+
+.main__header
+  position: relative
+  padding-top: 5rem
+
+.header__container,
+.headline
+  position: relative
+  padding: 0 calc(10% - 15px)
+  +MQ(XL)
+    padding: 0 8.5rem
+  +MQ(XXL)
+    padding: 0 10.5rem
+
+.header__logo
+  position: relative
+  margin-bottom: 2rem
+  img
+    display: block
+    width: auto
+    margin: 0 auto
+  +MQ(M)
+    padding-top: 0.4rem
+    margin-bottom: 0
+    img
+      margin: 0
+
+.header__btnholder
+  position: relative
+  text-align: center
+  +MQ(M)
+    text-align: right
+
+.main__content
+  position: relative
+  padding: 6rem 0
+  +MQ(XL)
+    padding: 7rem 0
+
+.object-1
+  +position(absolute, -60px null null -10px)
+  max-width: 140px
+  +MQ(M)
+    max-width: 240px
+    top: -7%
+  +MQ(XL)
+    max-width: 280px
+    top: -12%
+    left: 60px
+  +MQ(XXL)
+    max-width: none
+    top: -10%
+
+.object-2
+  +position(absolute, 120px -50px null null)
+  max-width: 180px
+  transform: rotate(10deg)
+  +MQ(M)
+    max-width: 200px
+    top: 90px
+  +MQ(XL)
+    max-width: 280px
+    top: 140px
+  +MQ(XXL)
+    max-width: 340px
+    top: 70px
+    right: 30px
+/* ------------------------------------------------*/
+/* Intro Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Preview Sections Styles Start
+/* ------------------------------------------------*/
+.main__demo
+  position: relative
+  padding-bottom: 4rem
+  &.first-section
+    padding-top: 2rem
+  &.has-title
+    padding-top: 4.5rem
+  +MQ(M)
+    &.has-title
+      padding-top: 8.4rem
+  +MQ(XL)
+    &.first-section
+      padding-top: 8rem
+  +MQ(XL)
+    padding-bottom: 5rem
+  +MQ(XXL)
+    padding-bottom: 7rem
+    &.has-title
+      padding-top: 11.4rem
+/* ------------------------------------------------*/
+/* Preview Sections Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Headline Styles Start
+/* ------------------------------------------------*/
+.demo__background
+  position: absolute
+  top: 0
+  +center(x)
+  text-align: center
+  span
+    font: normal 400 6.4rem/1 $title-font
+    text-transform: uppercase
+    white-space: nowrap
+    color: rgba($black, 0.26)
+  +MQ(M)
+    span
+      font-size: 12rem
+  +MQ(XXL)
+    span
+      font-size: 16rem
+/* ------------------------------------------------*/
+/* Headline Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Preview Links Styles Start
+/* ------------------------------------------------*/
+.demo__links
+  position: relative
+  width: 100%
+  padding: 0 calc(10% - 15px)
+  +MQ(XL)
+    padding: 0 8.5rem
+  +MQ(XXL)
+    padding: 0 10.5rem
+
+.links__item
+  display: block
+  position: relative
+  margin-bottom: 4rem
+  a
+    display: block
+    .no-touch &:hover
+      .links__image
+        border: 1px solid rgba($white, 0.2)
+        img
+          opacity: 0.3
+      .new-item
+        &::before
+          top: -14px
+          box-shadow: 0 8px 17px 2px rgba(0,0,0,0.1), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.14)
+  +MQ(XL)
+    margin-bottom: 5rem
+  +MQ(XXL)
+    margin-bottom: 7rem
+
+.new-item
+  &::before
+    content: 'NEW'
+    +position(absolute, -10px -10px null null)
+    width: 46px
+    height: 46px
+    border-radius: 50%
+    background-color: #de0b38
+    color: $text-light
+    font: normal 600 1.1rem/46px $default-font
+    letter-spacing: 0.1rem
+    text-transform: uppercase
+    text-align: center
+    z-index: 12
+    transition: all $animation-duration ease-in-out
+
+.links__image
+  position: relative
+  width: 100%
+  background-color: $base-color-dark
+  border: 1px solid rgba($white, 0.0)
+  transition: all $animation-duration ease-in-out
+  img
+    opacity: 1
+    transition: opacity $animation-duration
+/* ------------------------------------------------*/
+/* Preview Links Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Subscribe Section Styles Start
+/* ------------------------------------------------*/
+.subscribe
+  position: relative
+  min-width: 320px
+  padding: 8rem 0
+  background-color: $base-color
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  background-image: url('../img/demo/bg-demo-subscribe.jpg')
+  +MQ(M)
+    padding: 8rem 0
+  +MQ(XL)
+    padding: 10rem 0
+  +MQ(XXL)
+    padding: 14rem 0
+
+.subscribe__container
+  position: relative
+  width: 100%
+  padding: 0 calc(10% - 15px)
+  +MQ(XL)
+    padding: 0 8.5rem
+  +MQ(XXL)
+    padding: 0 10.5rem
+
+.subscribe__content
+  max-width: 500px
+
+.subscribe__title
+  .title
+    font: normal 400 3rem/1 $title-font
+    color: $text-light
+    margin-bottom: 3rem
+  .descr
+    font: normal 300 1.6rem/1.6 $default-font
+    margin-top: 1.7rem
+    padding-left: 2px
+    color: $text-light-base
+  +MQ(M)
+    .title
+      font-size: 4rem
+  +MQ(XXL)
+    .title
+      font-size: 5rem
+
+.form-container
+  position: relative
+  padding-top: 3.4rem
+
+.form
+  opacity: 1
+  transition: opacity $animation-duration ease-in-out
+  &.is-hidden
+    opacity: 0
+
+form
+  position: relative
+  width: 100%
+  input, textarea
+    position: relative
+    display: block
+    width: 100%
+    border: none
+    outline: none
+    margin: 0
+    padding: 0
+    background-color: transparent
+    padding: 1.2rem .3rem
+    font: normal 300 1.5rem/1.7 $default-font
+    transition: all .6s
+  input
+    height: 5rem
+    margin: 0 0 2.4rem 0
+  textarea
+    height: 14rem
+    resize: none
+    margin: 0 0 .8rem 0
+  .inputs-description
+    display: block
+    width: 100%
+    margin-bottom: 1.4rem
+    text-align: right
+    font: normal 400 1.3rem/1 $default-font
+  +MQ(M)
+    input, textarea
+      font-size: 1.6rem
+
+.form-light
+  input, textarea
+    font-weight: 300
+  ::-webkit-input-placeholder
+    color: $text-light-mute
+  :-moz-placeholder
+    color: $text-light-mute
+  ::-moz-placeholder
+    color: $text-light-mute
+  :-ms-input-placeholder
+    color: $text-light-mute
+  input:focus:required:invalid,
+  textarea:focus:required:invalid
+    color: $text-light-mute
+  input:required:valid,
+  textarea:required:valid
+    color: $text-light
+  input, textarea
+    border-bottom: 1px solid $white
+    color: $text-light
+    &:focus
+      border-bottom: 1px solid rgba($white, 0.5)
+  .inputs-description
+    font-weight: 300
+    color: $text-light-mute
+
+.reply-group
+  position: absolute
+  top: 3.4rem
+  left: 0
+  width: 100%
+  max-width: 440px
+  text-align: left
+  opacity: 0
+  transition: opacity $animation-duration ease-in-out
+  &.is-visible
+    opacity: 1
+
+.reply-group__title
+  font: normal 400 3rem/1.06 $title-font
+  color: $text-light
+
+.reply-group__text
+  display: block
+  font: normal 300 1.5rem/1.7 $default-font
+  margin-top: .2rem
+  color: $text-light-base
+/* ------------------------------------------------*/
+/* Subscribe Section Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Footer Styles Start
+/* ------------------------------------------------*/
+.footer
+  background-color: shade($base-color-dark, 5%)
+  position: relative
+  padding: 4rem calc(10% - 15px)
+  text-align: center
+  +MQ(XL)
+    padding: 5rem 8.5rem
+  +MQ(XXL)
+    padding: 5rem 10.5rem
+/* ------------------------------------------------*/
+/* Footer Styles End
+/* ------------------------------------------------*/
